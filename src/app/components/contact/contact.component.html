@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Contacto</h1>
+
+    <div id="texto" #textos>
+        <!-- <button class="btn btn-primary" (click)="clickMe()">Click me</button> -->
+        <p appResaltado >
+            Página de contacto, envíanos cualquier duda. Linkedin - Jeremías Fernández. 
+        </p>
+    </div>
+    
+    Tamaño del slider (Ej: 300) :
+    <input type="number" [(ngModel)]="widthSlider" />
+    <button (click)="cargarSlider()">Cargar slider</button>
+    <button (click)="resetearSlider()">Resetear slider</button>
+
+    <div *ngIf="anchuraToSlider">
+        <!-- Pasar atributos a componente hijo -->
+        <app-slider> 
+            [anchura]="anchuraToSlider"
+            [etiquetas]="captions"
+            <!-- (conseguirAutor) event emiiter del Output proveniente del componente hijo -->
+            (conseguirAutor)="getAutor($event)"
+        </app-slider>
+    </div>
+
+    {{autor.nombre + " " + autor.website}}
+
+</div>
